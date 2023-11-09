@@ -10,6 +10,6 @@ Bucketへのアクセス権限を管理するものにバケットポリシー�
 
 ## Cloudfront
 ### Lambda@Edgeを使った動的オリジン選択
-リクエストの内容に応じて、接続先オリジンをLambda@Edgeでハンドリングすることができる。  
+リクエストの内容に応じて、接続先オリジンをLambda@Edgeでルーティングすることができる。  
 　URLがfoo.example.com/hogeだったらオリジンAに接続  
 　URLがfoo.example.com/booだったらオリジンBに接続  
