@@ -94,3 +94,11 @@ API Gateway + Lambdaの構成で、Lambdaから502エラーが返されたとき
 　　statusCodeとbodyがレスポンスに含まれているか  
 　　body部のJSONが正しい形になっているか  
 　コードエラーで強制終了。  
+
+## API Gateway
+### Cloudfrontとの組み合わせ
+API Gatewayには内部的にCloudfrontを使っている機能がある。  
+（エッジ最適化エンドポイント、キャッシュ）  
+
+キャッシュをより細かく制御したいケースで、API Gatewayの機能で実現できない場合、
+APIの前段にCloudfrontを置く必要がある。  
