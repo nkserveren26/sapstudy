@@ -91,6 +91,6 @@ EC2やLambda、Fargateといったコンピューティングリソースを、�
 ### 502エラーが返されたとき
 API Gateway + Lambdaの構成で、Lambdaから502エラーが返されたとき、以下のケースが考えられる。  
 　レスポンスの形式が正しくない。  
-　　StatusCodeとbodyがレスポンスに含まれているか  
+　　statusCodeとbodyがレスポンスに含まれているか  
 　　body部のJSONが正しい形になっているか  
 　コードエラーで強制終了。  
