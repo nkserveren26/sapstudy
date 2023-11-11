@@ -141,3 +141,8 @@ APIの前段にCloudfrontを置く必要がある。
 ### HDD→SSDの変更
 既存のFSx For Windows Serverのストレージタイプは変更できない。  
 既存のサーバーをHDD→SSDに変更するには、新規にFSx For Windows ServerをSSDで作成し、そっちにデータをレプリケートする必要がある。
+
+## IAM
+## IAM Access Analyzer
+リソースアクセス制限をするポリシーを分析し、外部からのアクセス設定がされていないかを検出するサービス。  
+アクセス可能なエンティティ（AWSアカウント、Organizationに所属するアカウントなど）を信頼ゾーンとして定義し、その信頼ゾーン外からのアクセスを外部とみなす。
