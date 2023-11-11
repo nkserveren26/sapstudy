@@ -1,5 +1,12 @@
 # AWS Solution Architect Professional 勉強メモ
 
+## RDS
+### Babelfish for Aurora PostgreSQL
+SQL Server独自のSQL言語（T-SQLなど）を解釈できるAurora PostgreSQL。  
+SQL ServerからPostgreSQLに移行する際、アプリケーション側でコード変更が発生する。  
+（SQL部分）  
+BabelfishはSQL Server独自のSQLをサポートしているので、アプリケーション側のコード変更が不要。
+
 ## S3
 ### S3アクセスポイント
 S3 Bucketへのアクセス権限を管理するポリシーみたいなもの。  
