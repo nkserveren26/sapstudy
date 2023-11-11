@@ -118,3 +118,8 @@ API Gatewayには内部的にCloudfrontを使っている機能がある。
 
 キャッシュをより細かく制御したいケースで、API Gatewayの機能で実現できない場合、
 APIの前段にCloudfrontを置く必要がある。  
+
+## FSx For Windows Server
+### HDD→SSDの変更
+既存のFSx For Windows Serverのストレージタイプは変更できない。  
+既存のサーバーをHDD→SSDに変更するには、新規にFSx For Windows ServerをSSDで作成し、そっちにデータをレプリケートする必要がある。
