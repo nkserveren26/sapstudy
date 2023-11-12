@@ -146,6 +146,15 @@ VPC内に作成され、ENIが割り当てられる。
 ### プライベート仮想インターフェイス
 オンプレ側からVPC内のリソースへのアクセスに使用する。  
 
+## Direct Connectゲートウェイ
+1つのVIFに複数のVGWを紐づけるAWSリソース。  
+これを使えば、1つのVIFで複数のリージョンにアクセスすることができる。 
+ただし、以下の制約がある。  
+　Direct Connect Gatewayを介したVPC(VGW)同士の通信は不可
+　Direct Connect Gatewayを介したVIF同士の通信は不可
+　異なるAWSアカウントのVIFおよびVGWの接続は不可
+
+
 ### トランジット仮想インターフェイス
 トランジットゲートウェイとDirect Connectを紐づける。  
 このインターフェイスはDirect Connectゲートウェイに紐づける必要がある。
