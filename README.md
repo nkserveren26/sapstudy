@@ -1,5 +1,11 @@
 # AWS Solution Architect Professional 勉強メモ
 
+## Firewall Manager
+多数のアカウントとアプリケーションに対して、中央でAWS WAF ルールを設定、管理するセキュリティ管理サービス。  
+Organizationの管理アカウント等でWAFルールを一元管理し、組織に所属するアカウントにWAFを適用できる。
+
+<br>
+
 ## RDS
 ### Babelfish for Aurora PostgreSQL
 SQL Server独自のSQL言語（T-SQLなど）を解釈できるAurora PostgreSQL。  
