@@ -214,6 +214,12 @@ API Gateway + Lambdaの構成で、Lambdaから502エラーが返されたとき
 
 <br>
 
+## Compute Optimizer
+ユーザー環境を機械学習を使って分析し、最適なコンピューティングリソースを提案するサービス。  
+リソースの提案は最大3つまで提示してくれる。  
+また、メモリ等の使用率も予測してくれる。  
+対象サービスはEC2、EC2 Auto Scaling、EBS、Lambda。
+
 ## API Gateway
 ### Cloudfrontとの組み合わせ
 API Gatewayには内部的にCloudfrontを使っている機能がある。  
