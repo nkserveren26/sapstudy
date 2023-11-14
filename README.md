@@ -279,3 +279,12 @@ Recipeから実際にAMIを取得するパイプラインを定義したもの�
 ## Identity Center
 AWS Single Sign-onの後継サービスであり、AWS Organizationsで複数アカウントを運用している環境で各ユーザを集約管理し、各アカウントへのシングルサインオンを提供。  
 管理アカウントで各アカウントへ接続する際に使用するIAMロールとIAMユーザーを紐づけることで、利用者は1つのIAMユーザーで各AWSアカウント環境にログインできる。
+
+<br>
+
+## AWS Organizations
+### OrganizationAccountAccessRole
+AWS Organizationsでアカウントを作成すると、そのアカウント内にOrganizationAccountAccessRoleという名前のロールが作成される。  
+このロールはAdministrator権限が付与されており、大体何でもできる。  
+用途としては、マスターアカウント内のIAMユーザーにこのロールを引き受ける権限を付与しておき、このIAMユーザーで対象アカウントにスイッチロールしてログインし、何らかの操作をする（IAMユーザーの作成など）、など。  
+　ID、パスワードを入力せずにアカウント切り替えできるのがメリットか。
