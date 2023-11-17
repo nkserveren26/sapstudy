@@ -214,6 +214,12 @@ CIDRのリスト。
 
 <br>
 
+## Direct Connectの暗号化通信
+Direct Connectの通信は暗号化されていない。
+通信を暗号化する手段の1つとして、Site to Site VPNとの併用がある。  
+　Site to Site VPNのAWS側エンドポイントはパブリックIPを使用する。  
+　→パブリックVIFでVPN接続先VPCのVGWを接続する必要がある。
+
 ## Cost Categories
 AWSの料金を何らかのカテゴリで分割表示するサービス。  
 カテゴリの種類として以下がある。  
