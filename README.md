@@ -22,6 +22,15 @@ DBユーザーに対するrds-db:connect権限を付与したIAMロールを接�
 
 <br>
 
+## Aurora
+### Aurora Serverless Data API
+Aurora Serverlessへの接続エンドポイント。  
+httpプロトコルでの通信で接続する。  
+DBへの接続はエンドポイントを経由するので、Connections数が上限に達する問題を防ぐことができる。  
+Data APIでは、DBの認証情報はSecret Managerで保持されてるものを利用してDBに接続する。
+
+<br>
+
 ## Amazon TimeStream
 フルマネージド・サーバーレスの時系列データベースサービス。  
 timestampをキーに値を保持する。  
@@ -364,6 +373,8 @@ Control Towerにデフォルトで有効化されている。
 
 EBSの暗号化は必須ガードレールでは検証対象外であり、こっちは強く推奨ガードレールが検証対象としている。  
 →これもチェックしたい場合、このガードレールも有効化する。
+
+<br>
 
 ## AWS Organizations
 ### OrganizationAccountAccessRole
