@@ -284,6 +284,7 @@ API Gateway + Lambdaの構成で、Lambdaから502エラーが返されたとき
 　　statusCodeとbodyがレスポンスに含まれているか  
 　　body部のJSONが正しい形になっているか  
 　コードエラーで強制終了。  
+　Lambdaの同時実行数の上限に達した  
 
 <br>
 
