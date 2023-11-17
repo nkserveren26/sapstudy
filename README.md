@@ -357,6 +357,14 @@ AWS Single Sign-onの後継サービスであり、AWS Organizationsで複数ア
 
 <br>
 
+## Control Tower
+### 必須ガードレール
+Control Towerにデフォルトで有効化されている。  
+（CloudTrailやAWS COnfigが有効化されているか、など）
+
+EBSの暗号化は必須ガードレールでは検証対象外であり、こっちは強く推奨ガードレールが検証対象としている。  
+→これもチェックしたい場合、このガードレールも有効化する。
+
 ## AWS Organizations
 ### OrganizationAccountAccessRole
 AWS Organizationsでアカウントを作成すると、そのアカウント内にOrganizationAccountAccessRoleという名前のロールが作成される。  
