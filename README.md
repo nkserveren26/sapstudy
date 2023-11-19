@@ -392,7 +392,11 @@ AWS環境からオンプレ環境にあるドメインコントローラーに�
 　オンプレADの認証情報を使って、WorkSpaces、WorkDocs、WorkMailといったAWSのサービスにサインイン。  
 　Amazon EC2 launch wizardまたはEC2 Simple System Manager（SSM） API経由でのプログラムによるActive Directoryドメインへの参加  
 　Active DirectoryのアイデンティティとIAMロールとのマッピングによるAWS Management Consoleへのフェデレーションによるサインイン  
+　　AD Connector側でIAMロールとユーザーorグループをマッピングする
 
 AD Connectorは特定のVPC内に作成される。  
+　複数のサブネットに配置される必要がある。  
+
 作成時に、対象のオンプレADに関する情報を入れて、オンプレADとの関連付けをする。  
-AWS環境とオンプレ間で通信できるような仕組みを用意する必要がある（Direct Connect、AWS VPNなど）。
+また、AD Connectorとオンプレ間で通信できるような仕組みを用意する必要がある（Direct Connect、AWS VPNなど）。
+　言うまでもないが、インターネット経由でオンプレADと接続するのはセキュリティ面でバッドパターン。
