@@ -245,16 +245,23 @@ AWSの料金を何らかのカテゴリで分割表示するサービス。
 
 ## Direct Connectゲートウェイ
 1つのVIFに複数のVGWを紐づけるAWSリソース。  
-これを使えば、1つのVIFで複数のリージョンにアクセスすることができる。  
+Direct Connectで複数のVPCに接続するには、VPC分のVIFが必要だが、こっちは1つのVIFで複数のVPCに紐づけることができる。  
+　オンプレ→複数のVPCに接続することができる。
+
 ただし、以下の制約がある。  
 　Direct Connect Gatewayを介したVPC(VGW)同士の通信は不可  
 　Direct Connect Gatewayを介したVIF同士の通信は不可  
-　異なるAWSアカウントのVIFおよびVGWの接続は不可
+　異なるAWSアカウントのVIFおよびVGWの接続は不可  
+　接続するVPCの上限は20個
 
 
 ### トランジット仮想インターフェイス
 トランジットゲートウェイとDirect Connectを紐づける。  
 このインターフェイスはDirect Connectゲートウェイに紐づける必要がある。
+Direct Connectゲートウェイ同様、この構成もオンプレから複数のVPCに接続できるが、Direct Connectゲートウェイでは出来ないVPC間の接続もサポートしている。  
+（VPC間の接続はTransit Gatewayの機能である）
+
+<br>
 
 ## CodeBuild
 ### EFSをビルド実行環境にマウント可能
