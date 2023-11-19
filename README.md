@@ -388,7 +388,11 @@ AWS Organizationsでアカウントを作成すると、そのアカウント内
 
 ## AD Connector
 AWS環境からオンプレ環境にあるドメインコントローラーに対する通信を中継するためのプロキシサービス。  
-　WorkSpaces、WorkDocs、WorkMailといったAWSのサービス向けの専用プロキシ。
+これを使うと以下のことができる。  
+　オンプレADの認証情報を使って、WorkSpaces、WorkDocs、WorkMailといったAWSのサービスにサインイン。  
+　Amazon EC2 launch wizardまたはEC2 Simple System Manager（SSM） API経由でのプログラムによるActive Directoryドメインへの参加  
+　Active DirectoryのアイデンティティとIAMロールとのマッピングによるAWS Management Consoleへのフェデレーションによるサインイン  
+
 AD Connectorは特定のVPC内に作成される。  
 作成時に、対象のオンプレADに関する情報を入れて、オンプレADとの関連付けをする。  
 AWS環境とオンプレ間で通信できるような仕組みを用意する必要がある（Direct Connect、AWS VPNなど）。
