@@ -418,6 +418,16 @@ Simple ADは、Active Directoryが持つ機能のうち、以下の機能をサ�
 
 以上の機能制限を踏まえると、Simple ADは、オンプレミスADなどと連係しない独立したActive Directoryドメインとして導入する構成が唯一の選択肢となる。  
 
+また、AWS Managed Microsoft ADに比べて連携可能なAWSサービスが少ない。  
+AWS Managed Microsoft ADが対応していて、Simple ADが対応していないサービスは以下。  
+　Amazon FSx for Windows File Server
+　Amazon RDS/Aurora  
+　Amazon Chime
+　AWS Single Sign-On (SSO)  
+　AWS Transfer Family
+
+<br>
+
 ## AD Connector
 AWS環境からオンプレ環境にあるドメインコントローラーに対する通信を中継するためのプロキシサービス。  
 これを使うと以下のことができる。  
@@ -425,6 +435,9 @@ AWS環境からオンプレ環境にあるドメインコントローラーに�
 　Amazon EC2 launch wizardまたはEC2 Simple System Manager（SSM） API経由でのプログラムによるActive Directoryドメインへの参加  
 　Active DirectoryのアイデンティティとIAMロールとのマッピングによるAWS Management Consoleへのフェデレーションによるサインイン  
 　　AD Connector側でIAMロールとユーザーorグループをマッピングする
+
+AD ConnectorはRDS/Auroraに対応していない。  
+→このサービスとADを連携させたい場合はAWS Managed Microsoft ADを利用。  
 
 AD Connectorはあくまで中継するだけで、認証情報はAWS側でキャッシュされない。  
 AD Connectorは特定のVPC内に作成される。  
