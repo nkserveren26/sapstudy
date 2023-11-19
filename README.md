@@ -263,6 +263,21 @@ Direct Connectゲートウェイ同様、この構成もオンプレから複数
 
 <br>
 
+## Transit Gateway
+複数のVPC間の通信を確立するサービス。  
+中央ハブ的な役割を果たす。  
+ユースケースとしては、  
+　相互に接続する必要があるVPCの数が多い。  
+　　Transit Gatewayを使えば構成はスッキリする。  
+
+Transit Gatewayと他ネットワークリソース（VPC、Direct Connectゲートウェイなど）との非紐づけはTransit Gateway Attachmentで行う。  
+各AttachmentにはTransit Gateway Route Tableが紐づいており、このテーブルでルーティングを制御する。  
+VPCを関連付けている場合、VPC側のルートテーブルには、接続先IPのCIDRがTransit Gatewayに転送されるルールを追加する。  
+（自動的にルールが追加されないっぽい）
+
+<br>
+
+
 ## CodeBuild
 ### EFSをビルド実行環境にマウント可能
 CodeBuildのプロジェクト設定でビルド環境にマウントするEFSファイルシステムを設定できる。  
