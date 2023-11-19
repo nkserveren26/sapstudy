@@ -386,6 +386,38 @@ AWS Organizationsでアカウントを作成すると、そのアカウント内
 
 <br>
 
+## AWS Managed Microsoft AD
+「Microsoft Active Directory」をマネージドサービスとして提供するサービス。  
+AWS上のサービスをドメイン参加させることで、これらのサービスにADユーザーとして接続できるようになる。  
+　RDS/AuroraやAmazon FSx for Windows FIle Serverなど  
+
+もちろん、マネジメントコンソールへADユーザーでログイン可能。
+
+オンプレのADと信頼関係を確立させることで、オンプレのADと連携ができる。  
+　オンプレADユーザーでAWS上のリソースにアクセス  
+　マネジメントコンソールへのログインにオンプレADユーザーでログイン
+
+制限事項として、  
+　オンプレミスADなど既存のドメインに対して、AWS MS ADを「追加のドメインコントローラー」として追加できない  
+　AWS MS ADで構築したドメインに対して、オンプレミスAD等のドメインコントローラーを追加できない
+
+<br>
+
+## Simple AD
+Microsoft Active Directoryと互換性のある「Sambda」を使ったマネージドサービス。  
+ユーザーやコンピューターの管理、ログイン認証などの基本的な機能はActive Directoryと同様に利用できるが、Active Directoryで利用可能な多様な機能に対してSimple ADで使える機能は限定されている。  
+Simple ADは、Active Directoryが持つ機能のうち、以下の機能をサポートしていない。  
+　他のドメインとの信頼関係  
+　LDAPスキーマ拡張  
+　Active Directory「ごみ箱」機能  
+　グループ管理サービスアカウント (gMSA)  
+　RADIUSサーバーを使った多要素認証 (MFA)  
+　以下のツールを使った管理  
+　　PowerShell  
+　　Windows Server 2008 R2以降で提供されている「Active Directory管理センター」  
+
+以上の機能制限を踏まえると、Simple ADは、オンプレミスADなどと連係しない独立したActive Directoryドメインとして導入する構成が唯一の選択肢となる。  
+
 ## AD Connector
 AWS環境からオンプレ環境にあるドメインコントローラーに対する通信を中継するためのプロキシサービス。  
 これを使うと以下のことができる。  
@@ -394,9 +426,10 @@ AWS環境からオンプレ環境にあるドメインコントローラーに�
 　Active DirectoryのアイデンティティとIAMロールとのマッピングによるAWS Management Consoleへのフェデレーションによるサインイン  
 　　AD Connector側でIAMロールとユーザーorグループをマッピングする
 
+AD Connectorはあくまで中継するだけで、認証情報はAWS側でキャッシュされない。  
 AD Connectorは特定のVPC内に作成される。  
 　AD Connectorは複数のサブネットに配置される必要がある。  
 
 作成時に、対象のオンプレADに関する情報を入れて、オンプレADとの関連付けをする。  
 また、AD Connectorとオンプレ間で通信できるような仕組みを用意する必要がある（Direct Connect、AWS VPNなど）。
-　言うまでもないが、インターネット経由でオンプレADと接続するのはセキュリティ面でバッドパターン。
+　言うまでもないが、インターネット経由でオンプレADと接続するのはセキュリティ面でバッドパターン。  
