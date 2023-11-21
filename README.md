@@ -200,6 +200,19 @@ AWS上にレプリケーションインスタンスを構築し、このイン�
 
 <br>
 
+## System Manager
+### Session Managerを使ったWindows EC2へのRDP
+Session Managerのポートフォワーディングを使うことで、ローカル端末からWindows EC2へリモートデスクトップ接続できる。  
+　AWS CLIのSession Managerコマンドを実行して、ローカルポートと対象EC2との接続を確立する。  
+　　直接ローカルPCとEC2がつながっているわけではなく、間にSession Managerがおり、これが接続を中継している。  
+
+なお、現在はSystem Manager Fleet Managerがあり、そちらはマネージメントコンソール上でEC2にRDPすることができる。  
+　vSphereのWeb Client的なやつ。  
+　これも内部的にはSession Managerのポートフォワーディングを使っている。
+
+<br>
+
+
 ## ECR
 ### クロスリージョンレプリケーション
 ECRのプライベートレジストリを別リージョンにレプリケーションできる。  
