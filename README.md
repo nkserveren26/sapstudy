@@ -473,6 +473,8 @@ Recipeから実際にAMIを取得するパイプラインを定義したもの�
 WebアプリケーションやAPIを監視するサービス。  
 実際にこれらにアクセスし、サービスが正常に応答できているかどうか等を確認する。  
 設定したしきい値に基づいてエラーがあればアラート（Cloudwatchアラーム）を上げる。  
+裏ではLambdaが動いており、Lambda上でWebアプリやAPIへのアクセス等を行っている。  
+（いわゆるヘッドレスブラウザでWebアプリやAPIへアクセスしている）
 
 #### CloudWatch Synthetics Canary
 Cloudwatch Syntheticsを定義するもの。   
