@@ -479,10 +479,22 @@ WebアプリケーションやAPIを監視するサービス。
 #### CloudWatch Synthetics Canary
 Cloudwatch Syntheticsを定義するもの。   
 ここでアクセス対象のWebアプリやAPIのエンドポイントを設定する。   
-以下の方法で定義できる。  
+　URL  
+　HTTPメソッドなど  
+
+また、対象へのアクセス間隔をスケジュール設定可能。  
+　5分に1回アクセスなど  
+
+Canaryは以下の方法で定義できる。  
 　予め用意されたテンプレートを使う  
 　コード書いてカスタムで定義  
 　S3にスクリプトを配置して、それをインポート  
+
+Syntheticsで動かすLambdaのランタイム環境は以下。  
+　Node.js  
+　Python
+
+<br>
 
 ## Identity Center
 AWS Single Sign-onの後継サービスであり、AWS Organizationsで複数アカウントを運用している環境で各ユーザを集約管理し、各アカウントへのシングルサインオンを提供。  
