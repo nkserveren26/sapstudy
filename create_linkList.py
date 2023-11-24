@@ -10,8 +10,10 @@ def main():
     matches = pattern.finditer(markdown_content)
     
     for match in matches:
-        heading = match.group()
-        print(heading)
+        heading = match.group(1)
+        if heading not in ["AWS Solution Architect Professional 勉強メモ", "目次"]:
+            link = '- [' + heading + '](#' + heading.lower().replace(' ', '-') + ')'
+            print(link)
 
 
 if __name__ == "__main__":
