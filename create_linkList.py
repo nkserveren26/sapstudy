@@ -13,13 +13,20 @@ def main():
     matches = pattern.finditer(markdown_content)
     
     #取得した見出しをループしてリンクリストを生成
+    link_list = []
     for match in matches:
         level = len(match.group(1)) #見出しの階層
         heading = match.group(2) #見出しのタイトル
         if heading not in ["AWS Solution Architect Professional 勉強メモ", "目次"]:
             # リンクを生成
             link = f'{"  " * (level - 1)}- [{heading}](#{heading.lower().replace(" ", "-")})'
-            print(link)
+            # リンクをリストに追加
+            link_list.append(link)
+    
+    #リンク一覧を生成
+    result = '\n'.join(link_list)
+    print(result)
+            
 
 
 if __name__ == "__main__":
