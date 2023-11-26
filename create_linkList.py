@@ -1,6 +1,6 @@
 import re
 
-def generateLinkList(markdown_content):
+def generateLinkList(markdown_content: str) -> str:
     # 見出しを抽出する正規表現
     pattern = re.compile(r'^(#{1,3})\s+(.*?)\s*\n', re.MULTILINE)
 
