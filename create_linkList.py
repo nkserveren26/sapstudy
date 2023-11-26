@@ -14,7 +14,7 @@ def generateLinkList(readme_content: str) -> str:
         heading = match.group(2) #見出しのタイトル
         if heading not in ["AWS Solution Architect Professional 勉強メモ", "目次"]:
             # リンクを生成
-            link = f'{"  " * (level - 1)}- [{heading}](#{heading.lower().replace(" ", "-")})'
+            link = f'{"  " * (level - 2)}- [{heading}](#{heading.lower().replace(" ", "-")})'
             # リンクをリストに追加
             link_list.append(link)
     
@@ -31,7 +31,6 @@ def main():
 
     #リンク一覧を生成
     link_result = generateLinkList(readme_content)
-
     
     # 正規表現パターンを使用して目次の開始位置と終了位置を検索
     toc_start_match = re.search(r'^##\s*目次', readme_content, re.MULTILINE)
@@ -40,6 +39,15 @@ def main():
     # 目次の開始位置から終了位置までの範囲を切り出す
     toc_start_index = toc_start_match.start()
     toc_end_index = toc_start_match.end() + toc_end_match.start()
+
+    # 既存の目次部分を除いた新しいREADMEファイルの内容を作成
+    new_readme_content = (
+        readme_content[:toc_start_index]
+        + '## 目次\n\n'
+        + link_result
+        + '\n\n<br>\n\n'
+        + readme_content[toc_end_index:]
+    )
     
 
 if __name__ == "__main__":
