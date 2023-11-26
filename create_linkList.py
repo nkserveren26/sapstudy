@@ -15,9 +15,10 @@ def main():
     #取得した見出しをループしてリンクリストを生成
     for match in matches:
         level = len(match.group(1)) #見出しの階層
-        heading = match.group(1) #見出しのタイトル
+        heading = match.group(2) #見出しのタイトル
         if heading not in ["AWS Solution Architect Professional 勉強メモ", "目次"]:
-            link = '- [' + heading + '](#' + heading.lower().replace(' ', '-') + ')'
+            # リンクを生成
+            link = f'{"  " * (level - 1)}- [{heading}](#{heading.lower().replace(" ", "-")})'
             print(link)
 
 
