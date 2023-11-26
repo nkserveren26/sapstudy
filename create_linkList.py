@@ -1,11 +1,6 @@
 import re
 
-def main():
-    # Markdownファイルから内容を読み込む（ファイルのパスを適切に設定）
-    file_path = './README.md'
-    with open(file_path, 'r', encoding='utf-8') as file:
-        markdown_content = file.read()
-
+def generateLinkList(markdown_content):
     # 見出しを抽出する正規表現
     pattern = re.compile(r'^(#{1,3})\s+(.*?)\s*\n', re.MULTILINE)
 
@@ -24,10 +19,20 @@ def main():
             link_list.append(link)
     
     #リンク一覧を生成
-    result = '\n'.join(link_list)
-    print(result)
-            
+    result = '\n'.join(link_list)  # \nは改行を表現するエスケープシーケンス
+    return result
 
+
+def main():
+    # Markdownファイルから内容を読み込む（ファイルのパスを適切に設定）
+    file_path = './README.md'
+    with open(file_path, 'r', encoding='utf-8') as file:
+        markdown_content = file.read()
+
+    #リンク一覧を生成
+    link_result = generateLinkList(markdown_content)
+    print(link_result)
+            
 
 if __name__ == "__main__":
     main()
