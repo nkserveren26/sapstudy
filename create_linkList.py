@@ -27,10 +27,8 @@ def rewriteReadme(readme_path: str, readme_content: str, link_list: str):
     # 正規表現パターンを使用して目次の開始位置と終了位置を検索
     toc_start_match = re.search(r'^##\s*目次', readme_content, re.MULTILINE)
     toc_end_match = re.search(r'^##\s*', readme_content[toc_start_match.end():], re.MULTILINE)
-
-    # 目次の開始位置から終了位置までの範囲を切り出す
-    toc_start_index = toc_start_match.start()
-    toc_end_index = toc_start_match.end() + toc_end_match.start()
+    toc_start_index = toc_start_match.start()  #目次の開始位置
+    toc_end_index = toc_start_match.end() + toc_end_match.start()  #目次の終了位置
 
     # 既存の目次部分を除いた新しいREADMEファイルの内容を作成
     new_readme_content = (
