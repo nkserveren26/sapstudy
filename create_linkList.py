@@ -1,5 +1,6 @@
 import re
 
+# 考えられる例外の処理を追加
 def generateLinkList(readme_content: str) -> str:
     # 見出しを抽出する正規表現
     pattern = re.compile(r'^(#{1,4})\s+(.*?)\s*\n', re.MULTILINE)
@@ -43,18 +44,28 @@ def rewriteReadme(readme_path: str, readme_content: str, link_list: str):
     with open(readme_path, 'w', encoding='utf-8') as readme_file:
         readme_file.write(new_readme_content)
 
-
+# Exception追加
 def main():
-    # Markdownファイルから内容を読み込む（ファイルのパスを適切に設定）
-    file_path = './README.md'
-    with open(file_path, 'r', encoding='utf-8') as file:
-        readme_content = file.read()
+    try:
+        # Markdownファイルから内容を読み込む（ファイルのパスを適切に設定）
+        file_path = './README.md'
+        with open(file_path, 'r', encoding='utf-8') as file:
+            readme_content = file.read()
 
-    #リンク一覧を生成
-    link_result = generateLinkList(readme_content)
-
-    #READMEファイルを上書き
-    rewriteReadme(file_path, readme_content, link_result)
+        #リンク一覧を生成
+        link_result = generateLinkList(readme_content)
+        #READMEファイルを上書き
+        rewriteReadme(file_path, readme_content, link_result)
+    except re.error as e:
+        print(f"An error occurred in processing the regular expression: {e}")
+    except FileNotFoundError:
+        print("File not found error: The specified file does not exist.")
+    except PermissionError:
+        print("Permission error: Permission denied to open the file.")
+    except IOError as e:
+        print(f"IO error occurred: {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
     
 
 if __name__ == "__main__":
