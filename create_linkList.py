@@ -10,11 +10,11 @@ def generateLinkList(readme_content: str) -> str:
     #取得した見出しをループしてリンクリストを生成
     link_list = []
     for match in matches:
-        level = len(match.group(1)) #見出しの階層
-        heading = match.group(2) #見出しのタイトル
-        if heading not in ["AWS Solution Architect Professional 勉強メモ", "目次"]:
+        heading_level = len(match.group(1)) #見出しの階層
+        heading_title = match.group(2) #見出しのタイトル
+        if heading_title not in ["AWS Solution Architect Professional 勉強メモ", "目次"]:
             # リンクを生成
-            link = f'{"  " * (level - 2)}- [{heading}](#{heading.lower().replace(" ", "-")})'
+            link = f'{"  " * (heading_level - 2)}- [{heading_title}](#{heading_title.lower().replace(" ", "-")})'
             # リンクをリストに追加
             link_list.append(link)
     
