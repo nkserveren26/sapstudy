@@ -1,7 +1,17 @@
 import re
 
-# 考えられる例外の処理を追加
+
 def generateLinkList(readme_content: str) -> str:
+    """
+    README コンテンツから、目次に記載する見出しのリンク一覧を生成する。
+
+    Parameters:
+    - readme_content (str): README コンテンツの文字列。
+
+    Returns:
+    - str: 各見出しのリンク一覧。
+    """
+
     # 見出しを抽出する正規表現
     pattern = re.compile(r'^(#{1,4})\s+(.*?)\s*\n', re.MULTILINE)
 
@@ -25,6 +35,18 @@ def generateLinkList(readme_content: str) -> str:
 
 
 def rewriteReadme(readme_path: str, readme_content: str, link_list: str):
+    """
+    READMEファイルを上書きする。
+
+    Parameters:
+    - readme_path (str): READMEファイルのパス。
+    - readme_content (str): README コンテンツの文字列。
+    - link_list (str): README内の目次に記載する各見出しのリンク一覧。
+
+    Returns:
+    - str: 生成されたリンク一覧の文字列。
+    """
+
     # 正規表現パターンを使用して目次の開始位置と終了位置を検索
     toc_start_match = re.search(r'^##\s*目次', readme_content, re.MULTILINE)
     toc_end_match = re.search(r'^##\s*', readme_content[toc_start_match.end():], re.MULTILINE)
@@ -44,7 +66,7 @@ def rewriteReadme(readme_path: str, readme_content: str, link_list: str):
     with open(readme_path, 'w', encoding='utf-8') as readme_file:
         readme_file.write(new_readme_content)
 
-# Exception追加
+
 def main():
     try:
         # Markdownファイルから内容を読み込む（ファイルのパスを適切に設定）
