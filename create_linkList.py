@@ -48,6 +48,10 @@ def main():
         + '\n\n<br>\n\n'
         + readme_content[toc_end_index:]
     )
+
+    # 書き込んだ内容でREADMEファイルを上書き
+    with open(file_path, 'w', encoding='utf-8') as readme_file:
+        readme_file.write(new_readme_content)
     
 
 if __name__ == "__main__":
