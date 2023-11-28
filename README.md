@@ -22,7 +22,6 @@
     - [Apache Parquet形式でのデータ保存](#apache-parquet形式でのデータ保存)
     - [クロスリージョンレプリケーションの前提条件](#クロスリージョンレプリケーションの前提条件)
     - [S3 RTC](#s3-rtc)
-    - [aaaaaaaa](#aaaaaaaa)
   - [Amazon Macie](#amazon-macie)
   - [Cloudfront](#cloudfront)
     - [Lambda@Edgeを使った動的オリジン選択](#lambdaedgeを使った動的オリジン選択)
@@ -209,8 +208,6 @@ S3 Replication Time Control (S3 RTC)機能を使うことで、S3レプリケー
 通常のレプリケーションでは大体のS3オブジェクトのレプリケートは15分いないで完了するが、場合によっては数時間かかる場合がある。  
 RTCを併用することで、99.99%のオブジェクトを15分以内にレプリケートできる。
 
-### aaaaaaaa
-aaaaaaaaaa
 
 <br>
 
