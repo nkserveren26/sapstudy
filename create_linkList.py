@@ -12,6 +12,7 @@ def generateLinkList(readme_content: str) -> str:
     - str: 各見出しのリンク一覧。
     """
 
+    print("Generating link list...")
     # 見出しを抽出する正規表現
     pattern = re.compile(r'^(#{1,4})\s+(.*?)\s*\n', re.MULTILINE)
 
@@ -31,6 +32,7 @@ def generateLinkList(readme_content: str) -> str:
     
     #リンク一覧を生成
     result = '\n'.join(link_list)  # \nは改行を表現するエスケープシーケンス
+    print("Link list generated.")
     return result
 
 
@@ -47,6 +49,7 @@ def rewriteReadme(readme_path: str, readme_content: str, link_list: str):
     - str: 生成されたリンク一覧の文字列。
     """
 
+    print("Rewriting README file...")
     # 正規表現パターンを使用して目次の開始位置と終了位置を検索
     toc_start_match = re.search(r'^##\s*目次', readme_content, re.MULTILINE)
     toc_end_match = re.search(r'^##\s*', readme_content[toc_start_match.end():], re.MULTILINE)
@@ -66,11 +69,15 @@ def rewriteReadme(readme_path: str, readme_content: str, link_list: str):
     with open(readme_path, 'w', encoding='utf-8') as readme_file:
         readme_file.write(new_readme_content)
 
+    print("README file rewritten.")
+
 
 def main():
     try:
+        print("Starting the program...")
         # Markdownファイルから内容を読み込む（ファイルのパスを適切に設定）
         file_path = './README.md'
+        print(f"Reading README file from {file_path}...")
         with open(file_path, 'r', encoding='utf-8') as file:
             readme_content = file.read()
 
@@ -78,6 +85,7 @@ def main():
         link_result = generateLinkList(readme_content)
         #READMEファイルを上書き
         rewriteReadme(file_path, readme_content, link_result)
+        print("Program completed successfully.")
     except re.error as e:
         print(f"An error occurred in processing the regular expression: {e}")
     except FileNotFoundError:
