@@ -17,4 +17,4 @@ jobs:
       - name: Run Python script
         run: |  # runに複数行のコマンドを定義する場合は「|」を使う
           python -m pip install --upgrade pip
-          python your_script.py
+          python create_linkList.py
