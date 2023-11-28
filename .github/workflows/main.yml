@@ -1,0 +1,20 @@
+name: Run Python Script on Push
+
+on:
+  push:
+    branches:
+      - master  # masterブランチがpushされた場合にトリガー
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:  # withでは特定のstepに関連する設定を指定
+          python-version: 3.8
+      - name: Run Python script
+        run: |  # runに複数行のコマンドを定義する場合は「|」を使う
+          python -m pip install --upgrade pip
+          python your_script.py
